@@ -5,6 +5,8 @@ Cube cube = Cube();
 float thick = 1;
 int coords[3];
 Color colors[6];
+bool isRunning = true;
+
 
 void setup(){
 	cube.begin();
@@ -58,7 +60,14 @@ void sphere(){
 }
 
 void loop(){
-	sphere();
+	cube.updateAccelerometer();
+	if(cube.phi >= 10){
+		isRunning = !isRunning;
+		delay(1000);
+	}
+	if(isRunning == true){
+		sphere();
+	}
 	cube.background(Color(0,0,0));
 	cube.show();
 }
