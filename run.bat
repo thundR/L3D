@@ -1,0 +1,1 @@
+.\program.sh led_cube %1
